@@ -42,7 +42,7 @@ namespace EmployeeLaveManagmentSystem.Controllers
 
             return View(hourlyEmployees);
         }
-        public IActionResult SalariedyEmployees()
+        public IActionResult SalariedEmployees()
         {
             salariedEmployees = GetEmployees.GetSalariedEmployees();
             return View(salariedEmployees);
@@ -57,5 +57,12 @@ namespace EmployeeLaveManagmentSystem.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult EditHours(int days)
+        {
+
+            return View(hourlyEmployees);
+        }
+
     }
 }

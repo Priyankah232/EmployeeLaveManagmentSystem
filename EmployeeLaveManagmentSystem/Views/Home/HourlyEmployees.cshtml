@@ -1,4 +1,4 @@
-﻿@model List<EmployeeLaveManagmentSystem.Repository.ManagerEmployee>
+﻿@model List<EmployeeLaveManagmentSystem.Repository.HourlyEmployee>
 
 <div id="accordion1" style="text-align:justify">
 
@@ -19,11 +19,20 @@
 
                 <td>@item.Noofvacations </td>
                 <td>
-                    <input type="button" value="Update Work Hours" onclick="location.href='@Url.ActionLink("Create", "Home")'" />
-                    <input type="button" value="Take Vacation" onclick="location.href='@Url.ActionLink("Create", "Home")'" />
+                    <input type="button" value="Update Work Hours" onclick="location.href='@Url.Action("EditHours", "Home",new { item.EmployeeID})'" />
+                    <input type="button" value="Take Vacation" onclick="location.href='@Url.Action("Create", "Home")'" />
                 </td>
 
             </tr>
         }
     </table>
 </div>
+
+<script>
+    $(function () {
+        $("#showDialog").click(function () { DisplayUpdateCustomerDialog(); });
+    });
+    function DisplayUpdateCustomerDialog() {
+        //...code for dialog
+    }
+</script>
