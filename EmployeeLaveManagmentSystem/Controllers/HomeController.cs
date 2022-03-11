@@ -1,5 +1,7 @@
 ﻿using EmployeeLaveManagmentSystem.Models;
+using EmployeeLaveManagmentSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,10 @@ namespace EmployeeLaveManagmentSystem.Controllers
 {
     public class HomeController : Controller
     {
+        public List<HourlyEmployee> hourlyEmployees = new List<HourlyEmployee>();
+        public List<SalariedEmployee> salariedEmployees = new List<SalariedEmployee>();
+
+        public List<ManagerEmployee> managerEmployees = new List<ManagerEmployee>();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -21,8 +27,11 @@ namespace EmployeeLaveManagmentSystem.Controllers
 
         public IActionResult Index()
         {
+            hourlyEmployees = GetEmployees.GetHourlyEmployees();
+            salariedEmployees = GetEmployees.GetSalariedEmployees();
+            managerEmployees = GetEmployees.GetmanagerEmployees();
 
-            return View();
+            return View(hourlyEmployees);
         }
 
         public IActionResult Privacy()

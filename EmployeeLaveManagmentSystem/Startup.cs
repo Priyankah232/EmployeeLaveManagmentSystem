@@ -14,16 +14,11 @@ namespace EmployeeLaveManagmentSystem
 {
     public class Startup
     {
-        public List<HourlyEmployee> hourlyEmployees = new List<HourlyEmployee>();
-        public List<SalariedEmployee> salariedEmployees = new List<SalariedEmployee>();
-
-        public List<ManagerEmployee> managerEmployees = new List<ManagerEmployee>();
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            hourlyEmployees = GetEmployees.GetHourlyEmployees();
-            salariedEmployees = GetEmployees.GetSalariedEmployees();
-            managerEmployees = GetEmployees.GetmanagerEmployees();
+           
         }
 
         public IConfiguration Configuration { get; }
@@ -31,9 +26,7 @@ namespace EmployeeLaveManagmentSystem
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<List<HourlyEmployee>>(hourlyEmployees.ToList());
-            services.AddSingleton<List<SalariedEmployee>>(salariedEmployees.ToList());
-            services.AddSingleton<List<ManagerEmployee>>(managerEmployees.ToList());
+            
             services.AddControllersWithViews();
         }
 

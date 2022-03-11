@@ -9,34 +9,4 @@
 
 @model IEnumerable<EmployeeLaveManagmentSystem.Repository.HourlyEmployee>
 
-<div id="accordion1" style="text-align:justify">
-
- 
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>Employee ID/th>
-                <th>Empployee Name</th>
-                <th>No of Working Days</th>
-                <th>No of Vacations</th>
-                <th colspan="4">Actions</th>
-            </tr>
-            @foreach (var item in Model)
-            {
-        <tr>
-            <td>@item.EmployeeID</td>
-            <td>@item.EmployeeName</td>
-            <td>@item.WorkingDays</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID })
-            </td>
-            <td>@item.Noofvacations.</td>
-            <td>
-                @Html.ActionLink("Detail", "Detail", new { id = item.EmployeeID })
-            </td>
-
-
-
-        </tr>
-            }
-        </table>
 </div>
