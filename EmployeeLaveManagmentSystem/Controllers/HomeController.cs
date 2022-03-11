@@ -27,13 +27,26 @@ namespace EmployeeLaveManagmentSystem.Controllers
 
         public IActionResult Index()
         {
-            hourlyEmployees = GetEmployees.GetHourlyEmployees();
-            salariedEmployees = GetEmployees.GetSalariedEmployees();
+            return View();
+        }
+
+        public IActionResult Managers()
+        {
             managerEmployees = GetEmployees.GetmanagerEmployees();
+            return View(managerEmployees);
+        }
+
+        public IActionResult HourlyEmployees()
+        {
+            hourlyEmployees = GetEmployees.GetHourlyEmployees();
 
             return View(hourlyEmployees);
         }
-
+        public IActionResult SalariedyEmployees()
+        {
+            salariedEmployees = GetEmployees.GetSalariedEmployees();
+            return View(salariedEmployees);
+        }
         public IActionResult Privacy()
         {
             return View();

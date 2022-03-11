@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@model IEnumerable<EmployeeLaveManagmentSystem.Repository.HourlyEmployee>
+
+<div id="accordion1" style="text-align:justify">
+
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Employee ID/th>
+            <th>Empployee Name</th>
+            <th>No of Working Days</th>
+            <th>No of Vacations</th>
+            <th colspan="4">Actions</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeID</td>
+                <td>@item.EmployeeName</td>
+                <td>@item.WorkingDays @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID })</td>
+
+                <td>@item.Noofvacations. @Html.ActionLink("Detail", "Detail", new { id = item.EmployeeID }) </td>
+
+
+
+
+            </tr>
+        }
+    </table>
+</div>
